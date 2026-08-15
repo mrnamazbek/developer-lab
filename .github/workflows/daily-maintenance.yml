@@ -18,16 +18,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh the public AI attention signal
+        run: python3 scripts/update_ai_pulse.py
       - name: Refresh the transparent maintenance status
         run: node scripts/daily-maintenance.mjs
-      - name: Commit only when the date changed
+      - name: Commit refreshed public signals
         run: |
-          if git diff --quiet -- data/daily-status.json; then
+          if git diff --quiet -- data/daily-status.json data/ai-pulse.json; then
             echo "No maintenance change is needed today."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/daily-status.json
-          git commit -m "chore: refresh daily maintenance status [skip ci]"
+          git add data/daily-status.json data/ai-pulse.json
+          git commit -m "chore: refresh lab signals [skip ci]"
           git push

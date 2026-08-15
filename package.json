@@ -6,7 +6,7 @@
   "description": "A small, privacy-friendly toolkit for everyday engineering work.",
   "scripts": {
     "test": "node --test",
-    "check": "node --check src/app.js && node --check src/toolkit.js && node --check scripts/daily-maintenance.mjs"
+    "check": "node --check src/app.js && node --check src/toolkit.js && node --check scripts/daily-maintenance.mjs && python3 -m py_compile scripts/update_ai_pulse.py"
   },
   "keywords": [
     "developer-tools",

@@ -117,3 +117,110 @@ export function estimateMonthlyCost({ provider = "aws", cpu = 4, ram = 16, stora
   const disk = Number(storage) * baseline.storage;
   return { compute, disk, total: compute + disk };
 }
+
+const AGENT_STACKS = {
+  node: {
+    label: "TypeScript / Node.js",
+    setup: "npm install",
+    verify: "npm test && npm run check",
+    conventions: "Prefer typed boundaries, small modules, and browser-safe dependencies.",
+  },
+  python: {
+    label: "Python",
+    setup: "python3 -m venv .venv && source .venv/bin/activate",
+    verify: "python3 -m pytest",
+    conventions: "Prefer explicit types, small pure functions, and isolated I/O.",
+  },
+  data: {
+    label: "Data / pipelines",
+    setup: "python3 -m pip install -r requirements.txt",
+    verify: "python3 -m pytest && python3 -m ruff check .",
+    conventions: "Keep transformations deterministic, validate inputs, and document lineage.",
+  },
+};
+
+function cleanLine(value, fallback) {
+  const cleaned = String(value || "").trim().replace(/\s+/g, " ");
+  return cleaned || fallback;
+}
+
+function cleanBlock(value, fallback) {
+  const cleaned = String(value || "").trim();
+  return cleaned || fallback;
+}
+
+export function generateAgentGuide({ projectName, stack = "node", goal, testCommand, notes } = {}) {
+  const profile = AGENT_STACKS[stack] || AGENT_STACKS.node;
+  const project = cleanLine(projectName, "Project");
+  const target = cleanBlock(goal, "Describe the requested change before editing.");
+  const verification = cleanLine(testCommand, profile.verify);
+  const extraNotes = cleanBlock(notes, "No additional constraints provided.");
+
+  return [
+    "# AGENTS.md",
+    "",
+    `## ${project}`,
+    `- Stack: ${profile.label}`,
+    `- Current objective: ${target}`,
+    "",
+    "## Working agreement",
+    "1. Read the relevant files and existing conventions before changing code.",
+    "2. Keep each change focused; avoid unrelated rewrites and new dependencies unless they are necessary.",
+    "3. Preserve user-facing accessibility, privacy, and error states.",
+    `4. ${profile.conventions}`,
+    "",
+    "## Commands",
+    `- Setup: \`${profile.setup}\``,
+    `- Verify: \`${verification}\``,
+    "",
+    "## Done means",
+    "- The requested behavior is implemented and manually understandable.",
+    "- Relevant checks pass or any limitation is stated clearly.",
+    "- Documentation and examples stay aligned with the implementation.",
+    "",
+    "## Additional context",
+    extraNotes,
+    "",
+  ].join("\n");
+}
+
+export function formatJson(input) {
+  try {
+    const value = JSON.parse(input);
+    return { valid: true, value, output: JSON.stringify(value, null, 2) };
+  } catch (error) {
+    return { valid: false, value: null, output: error.message };
+  }
+}
+
+export function inferJsonSchema(value) {
+  if (value === null) return { type: "null" };
+  if (Array.isArray(value)) {
+    return {
+      type: "array",
+      items: value.length ? inferJsonSchema(value[0]) : {},
+    };
+  }
+  if (typeof value === "object") {
+    const properties = Object.fromEntries(Object.entries(value).map(([key, item]) => [key, inferJsonSchema(item)]));
+    return { type: "object", properties, required: Object.keys(value), additionalProperties: false };
+  }
+  if (typeof value === "number") return { type: Number.isInteger(value) ? "integer" : "number" };
+  return { type: typeof value };
+}
+
+export function jsonLens(input, mode = "format") {
+  const parsed = formatJson(input);
+  if (!parsed.valid) return parsed;
+  if (mode === "minify") return { ...parsed, output: JSON.stringify(parsed.value) };
+  if (mode === "schema") {
+    return {
+      ...parsed,
+      output: JSON.stringify({
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        ...inferJsonSchema(parsed.value),
+      }, null, 2),
+    };
+  }
+  return parsed;
+}

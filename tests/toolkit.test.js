@@ -4,8 +4,10 @@ import {
   analyzeRegex,
   estimateMonthlyCost,
   filterAndSortRadar,
+  generateAgentGuide,
   generateCompose,
   highlightMatches,
+  jsonLens,
 } from "../src/toolkit.js";
 
 test("analyzeRegex finds global matches", () => {
@@ -42,4 +44,33 @@ test("cost estimate returns positive compute, storage, and total values", () => 
   assert.ok(result.compute > 0);
   assert.ok(result.disk > 0);
   assert.equal(result.total, result.compute + result.disk);
+});
+
+test("agent guide includes the project objective and verification command", () => {
+  const guide = generateAgentGuide({
+    projectName: "Pulse Kit",
+    stack: "python",
+    goal: "Add a transparent metric.",
+    testCommand: "pytest -q",
+    notes: "Do not add tracking.",
+  });
+  assert.match(guide, /## Pulse Kit/);
+  assert.match(guide, /Current objective: Add a transparent metric\./);
+  assert.match(guide, /Verify: `pytest -q`/);
+  assert.match(guide, /Do not add tracking\./);
+});
+
+test("JSON lens creates a nested starter schema", () => {
+  const result = jsonLens('{"name":"lab","checks":{"pass":true},"tags":["ai"]}', "schema");
+  assert.equal(result.valid, true);
+  const schema = JSON.parse(result.output);
+  assert.equal(schema.type, "object");
+  assert.equal(schema.properties.checks.properties.pass.type, "boolean");
+  assert.equal(schema.properties.tags.items.type, "string");
+});
+
+test("JSON lens returns parser feedback for invalid payloads", () => {
+  const result = jsonLens('{invalid}', "format");
+  assert.equal(result.valid, false);
+  assert.match(result.output, /Unexpected token|Expected property name/i);
 });

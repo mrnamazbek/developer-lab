@@ -6,12 +6,12 @@
     <meta name="theme-color" content="#07111f" />
     <meta
       name="description"
-      content="Developer Lab is a privacy-friendly browser toolkit for regex, Docker Compose, tech discovery, and rough cloud cost planning."
+      content="Developer Lab is a privacy-friendly browser toolkit for AI-agent briefs, JSON contracts, regex, Docker Compose, and engineering signals."
     />
     <meta property="og:title" content="Developer Lab — small tools, less friction" />
     <meta
       property="og:description"
-      content="Four focused engineering tools that run locally in your browser."
+      content="Six focused engineering tools and a transparent AI attention pulse that run from a static site."
     />
     <title>Developer Lab — small tools, less friction</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,7 +35,9 @@
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#tools">Tools</a>
+        <a href="#ai-pulse">AI Pulse</a>
         <a href="#principles">Principles</a>
+        <a href="#support">Support</a>
         <a href="https://github.com/mrnamazbek/developer-lab" target="_blank" rel="noreferrer">GitHub ↗</a>
       </nav>
       <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">
@@ -56,7 +58,7 @@
           <a class="button button-quiet" href="https://github.com/mrnamazbek/developer-lab" target="_blank" rel="noreferrer">View source <span>↗</span></a>
         </div>
         <div class="hero-meta">
-          <span><strong>04</strong> focused tools</span>
+          <span><strong>06</strong> focused tools</span>
           <span class="meta-divider"></span>
           <span><strong>0</strong> backend requests</span>
           <span class="meta-divider"></span>
@@ -68,7 +70,7 @@
         <div class="section-heading">
           <div>
             <p class="section-kicker">The workbench</p>
-            <h2 id="tools-title">Four useful surfaces.</h2>
+            <h2 id="tools-title">Six useful surfaces.</h2>
           </div>
           <p class="section-note">Designed for the five-minute tasks that deserve a great interface.</p>
         </div>
@@ -175,7 +177,81 @@ team@developer.lab</textarea>
             <div class="cost-total"><span>estimated / month</span><strong id="cost-total">$107.20</strong></div>
             <p class="helper-text">Illustrative baseline only — confirm with your provider and region before budgeting.</p>
           </article>
+
+          <article class="tool-card" id="agent-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-violet">ai</div>
+              <div>
+                <p class="tool-index">05 / guide</p>
+                <h3>Agent brief builder</h3>
+              </div>
+              <span class="status-chip">agent-ready</span>
+            </div>
+            <p class="tool-description">Create a concise <code>AGENTS.md</code> that gives a coding agent the project map, commands, guardrails, and definition of done.</p>
+            <form class="form-grid" id="agent-form">
+              <label>Stack<select id="agent-stack"><option value="node">TypeScript / Node</option><option value="python">Python</option><option value="data">Data / pipelines</option></select></label>
+              <label>Project<input id="agent-project" value="Developer Lab" maxlength="80" /></label>
+              <label class="form-span-two">Objective<textarea id="agent-goal" class="textarea-input" maxlength="280">Build small, private-by-default tools that reduce developer friction.</textarea></label>
+              <label>Verify command<input id="agent-test" value="npm test && npm run check" maxlength="120" /></label>
+              <label>Extra context<input id="agent-notes" value="Keep it dependency-free and accessible." maxlength="140" /></label>
+            </form>
+            <div class="tool-result">
+              <div class="result-line"><span>AGENTS.md</span><div class="result-actions"><button id="agent-copy" class="text-button" type="button">copy</button><button id="agent-download" class="text-button" type="button">download</button></div></div>
+              <pre id="agent-output" class="result-box code-box compact-code" aria-live="polite"></pre>
+            </div>
+          </article>
+
+          <article class="tool-card" id="json-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-cyan">{ }</div>
+              <div>
+                <p class="tool-index">06 / contract</p>
+                <h3>JSON contract lens</h3>
+              </div>
+              <span class="status-chip">structured</span>
+            </div>
+            <p class="tool-description">Format a payload, compact it for transport, or generate a starter JSON Schema for API and AI structured-output work.</p>
+            <label for="json-input">Payload</label>
+            <textarea id="json-input" class="mono-input textarea-input json-input" spellcheck="false">{"task":"ship a feature","priority":"high","tools":["node","github"],"checks":{"tests":true,"coverage":80}}</textarea>
+            <div class="json-controls" role="group" aria-label="JSON operations">
+              <button type="button" class="filter-button active" data-json-mode="format">format</button>
+              <button type="button" class="filter-button" data-json-mode="minify">minify</button>
+              <button type="button" class="filter-button" data-json-mode="schema">schema</button>
+              <button id="json-copy" class="text-button json-copy" type="button">copy result</button>
+            </div>
+            <div class="tool-result">
+              <div class="result-line"><span id="json-output-label">formatted JSON</span><span id="json-status">valid</span></div>
+              <pre id="json-output" class="result-box code-box compact-code" aria-live="polite"></pre>
+              <p id="json-message" class="helper-text">Your browser does the parsing; nothing is sent anywhere.</p>
+            </div>
+          </article>
         </div>
+      </section>
+
+      <section id="ai-pulse" class="pulse-section" aria-labelledby="ai-pulse-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Transparent signal</p>
+            <h2 id="ai-pulse-title">AI pulse.<br /><em>Attention, not hype.</em></h2>
+          </div>
+          <p class="section-note">The same weekly platform-attention view, clearly labeled as a proxy rather than invented user counts.</p>
+        </div>
+        <article class="pulse-card">
+          <div class="pulse-card-head">
+            <div><span class="pulse-live-dot"></span><span class="pulse-live-label">weekly signal</span></div>
+            <span id="ai-pulse-as-of" class="pulse-date">loading latest snapshot…</span>
+          </div>
+          <div id="ai-pulse-tabs" class="ai-pulse-tabs" role="tablist" aria-label="AI platform attention"></div>
+          <div class="pulse-grid">
+            <div class="pulse-chart-area"><div id="ai-pulse-chart" class="ai-pulse-chart" aria-live="polite"></div></div>
+            <div class="pulse-metrics">
+              <div><span>latest week</span><strong id="ai-pulse-latest">—</strong></div>
+              <div><span>week over week</span><strong id="ai-pulse-change">—</strong></div>
+              <div><span>12-week avg</span><strong id="ai-pulse-average">—</strong></div>
+            </div>
+          </div>
+          <div class="pulse-footer"><span id="ai-pulse-method">Loading methodology…</span><a id="ai-pulse-source" href="https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/getting-started/" target="_blank" rel="noreferrer">source ↗</a></div>
+        </article>
       </section>
 
       <section id="principles" class="principles-section" aria-labelledby="principles-title">
@@ -188,6 +264,27 @@ team@developer.lab</textarea>
           <div class="principle"><span>02</span><div><h3>Useful without a build step</h3><p>Plain HTML, CSS, and JavaScript make the project easy to fork, host, and understand.</p></div></div>
           <div class="principle"><span>03</span><div><h3>Maintenance is visible</h3><p>CI checks every change. A scheduled workflow refreshes a small status file and identifies itself as automation.</p></div></div>
         </div>
+      </section>
+
+      <section id="support" class="support-section" aria-labelledby="support-title">
+        <article class="support-card">
+          <div class="support-copy">
+            <p class="section-kicker support-kicker">Keep the lab warm</p>
+            <h2 id="support-title">Buy a coffee.<br /><em>Fuel the next tool.</em></h2>
+            <p>Developer Lab stays free, focused, and dependency-light. A coffee is a small vote for the next useful experiment.</p>
+            <a id="support-link" class="support-button" href="#support" aria-describedby="support-status"><span class="support-button-mark">☕</span><span id="support-button-label">Support link warming up</span><span aria-hidden="true">↗</span></a>
+            <p id="support-status" class="support-status" aria-live="polite">The creator page will activate here after its secure payout setup is complete.</p>
+          </div>
+          <div class="coffee-scene" aria-hidden="true">
+            <div class="coffee-orbit orbit-one"></div>
+            <div class="coffee-orbit orbit-two"></div>
+            <div class="coffee-steam steam-one"></div>
+            <div class="coffee-steam steam-two"></div>
+            <div class="coffee-steam steam-three"></div>
+            <div class="coffee-cup"><div class="coffee-surface"></div><div class="coffee-handle"></div><span>dev<br />fuel</span></div>
+            <div class="coffee-caption"><span>01 cup</span><strong>→ one more sharp idea</strong></div>
+          </div>
+        </article>
       </section>
     </main>
 
