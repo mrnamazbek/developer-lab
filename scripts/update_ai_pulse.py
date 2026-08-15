@@ -20,7 +20,7 @@ OUTPUT = ROOT / "data" / "ai-pulse.json"
 API = "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/{article}/daily/{start}/{end}"
 PLATFORMS = [
     {"id": "chatgpt", "label": "ChatGPT", "article": "ChatGPT", "color": "#63e6e2"},
-    {"id": "claude", "label": "Claude", "article": "Claude_(language_model)", "color": "#60a5fa"},
+    {"id": "claude", "label": "Claude", "article": "Claude_(AI)", "color": "#60a5fa"},
     {"id": "gemini", "label": "Gemini", "article": "Gemini_(chatbot)", "color": "#b79aff"},
     {"id": "copilot", "label": "Copilot", "article": "Microsoft_Copilot", "color": "#9ce7b2"},
     {"id": "perplexity", "label": "Perplexity", "article": "Perplexity_AI", "color": "#ffd17a"},

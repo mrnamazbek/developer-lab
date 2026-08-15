@@ -54,7 +54,7 @@ The daily workflow is useful for confirming that Actions and Pages remain health
 
 AI vendors generally do not publish comparable daily-active-user counts for every individual model. To avoid inventing numbers, AI Pulse aggregates weekly English Wikipedia article pageviews for each tracked AI platform through the [Wikimedia Pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/getting-started/). It is a public attention signal only.
 
-The snapshot updates automatically; the page always displays its methodology and source link next to the chart.
+The snapshot updates automatically. The page reads the newest public JSON snapshot from the repository and falls back to the copy deployed with the site, then displays its methodology and source link next to the chart.
 
 ## Agent-ready workflow
 

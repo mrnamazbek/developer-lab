@@ -204,9 +204,23 @@ async function initAiPulse() {
   const tabs = $("#ai-pulse-tabs");
   const chart = $("#ai-pulse-chart");
   try {
-    const response = await fetch("data/ai-pulse.json", { cache: "no-cache" });
-    if (!response.ok) throw new Error(`Signal data unavailable (${response.status})`);
-    const data = await response.json();
+    const sources = [
+      "https://raw.githubusercontent.com/mrnamazbek/developer-lab/main/data/ai-pulse.json",
+      "data/ai-pulse.json",
+    ];
+    let data;
+    let lastError;
+    for (const source of sources) {
+      try {
+        const response = await fetch(source, { cache: "no-cache" });
+        if (!response.ok) throw new Error(`Signal data unavailable (${response.status})`);
+        data = await response.json();
+        break;
+      } catch (error) {
+        lastError = error;
+      }
+    }
+    if (!data) throw lastError || new Error("Signal data unavailable.");
     const series = Array.isArray(data.series) ? data.series.filter((item) => Array.isArray(item.points) && item.points.length) : [];
     if (!series.length) throw new Error("No signal series available.");
     let selectedId = (Array.isArray(data.latest_rank) && data.latest_rank[0] && data.latest_rank[0].id) || series[0].id;

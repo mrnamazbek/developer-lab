@@ -1,7 +1,7 @@
 {
   "as_of": "2026-08-03",
-  "generated_at": "2026-08-15T20:33:19.766203+00:00",
-  "status": "partial",
+  "generated_at": "2026-08-15T20:34:17.902325+00:00",
+  "status": "ok",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
     "name": "Wikimedia Pageviews API",
@@ -69,56 +69,56 @@
     {
       "id": "claude",
       "label": "Claude",
-      "article": "Claude_(language_model)",
+      "article": "Claude_(AI)",
       "color": "#60a5fa",
       "points": [
         {
           "week": "2026-05-18",
-          "views": 0
+          "views": 37
         },
         {
           "week": "2026-05-25",
-          "views": 0
+          "views": 19
         },
         {
           "week": "2026-06-01",
-          "views": 0
+          "views": 17
         },
         {
           "week": "2026-06-08",
-          "views": 0
+          "views": 24
         },
         {
           "week": "2026-06-15",
-          "views": 0
+          "views": 4129
         },
         {
           "week": "2026-06-22",
-          "views": 0
+          "views": 34785
         },
         {
           "week": "2026-06-29",
-          "views": 0
+          "views": 38272
         },
         {
           "week": "2026-07-06",
-          "views": 0
+          "views": 35572
         },
         {
           "week": "2026-07-13",
-          "views": 0
+          "views": 31405
         },
         {
           "week": "2026-07-20",
-          "views": 0
+          "views": 31666
         },
         {
           "week": "2026-07-27",
-          "views": 0
+          "views": 30811
         },
         {
           "week": "2026-08-03",
-          "views": 0
+          "views": 30592
         }
       ]
     },
@@ -354,6 +354,11 @@
       "views": 402893
     },
     {
+      "id": "claude",
+      "label": "Claude",
+      "views": 30592
+    },
+    {
       "id": "perplexity",
       "label": "Perplexity",
       "views": 15291
@@ -372,14 +377,7 @@
       "id": "gemini",
       "label": "Gemini",
       "views": 2471
-    },
-    {
-      "id": "claude",
-      "label": "Claude",
-      "views": 0
     }
   ],
-  "errors": [
-    "Claude: HTTP Error 404: Not Found"
-  ]
+  "errors": []
 }
