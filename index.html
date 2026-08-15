@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07111f" />
+    <meta
+      name="description"
+      content="Developer Lab is a privacy-friendly browser toolkit for regex, Docker Compose, tech discovery, and rough cloud cost planning."
+    />
+    <meta property="og:title" content="Developer Lab — small tools, less friction" />
+    <meta
+      property="og:description"
+      content="Four focused engineering tools that run locally in your browser."
+    />
+    <title>Developer Lab — small tools, less friction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <div class="grid-overlay" aria-hidden="true"></div>
+
+    <header class="topbar shell">
+      <a class="brand" href="#top" aria-label="Developer Lab home">
+        <span class="brand-mark">⌁</span>
+        <span>developer<span class="brand-accent">/lab</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#tools">Tools</a>
+        <a href="#principles">Principles</a>
+        <a href="https://github.com/mrnamazbek/developer-lab" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span id="theme-icon" aria-hidden="true">☼</span>
+      </button>
+    </header>
+
+    <main id="top" class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="eyebrow"><span class="pulse-dot"></span> open source · browser-first · no signup</div>
+        <h1 id="hero-title">Less setup.<br /><em>More building.</em></h1>
+        <p class="hero-copy">
+          A calm, focused workbench for the small engineering decisions that usually interrupt your flow.
+          Everything runs in your browser, and your input stays on your device.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#tools">Open the lab <span>↓</span></a>
+          <a class="button button-quiet" href="https://github.com/mrnamazbek/developer-lab" target="_blank" rel="noreferrer">View source <span>↗</span></a>
+        </div>
+        <div class="hero-meta">
+          <span><strong>04</strong> focused tools</span>
+          <span class="meta-divider"></span>
+          <span><strong>0</strong> backend requests</span>
+          <span class="meta-divider"></span>
+          <span><strong>MIT</strong> licensed</span>
+        </div>
+      </section>
+
+      <section id="tools" class="tools-section" aria-labelledby="tools-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">The workbench</p>
+            <h2 id="tools-title">Four useful surfaces.</h2>
+          </div>
+          <p class="section-note">Designed for the five-minute tasks that deserve a great interface.</p>
+        </div>
+
+        <div class="tool-grid">
+          <article class="tool-card tool-card-wide" id="regex-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-violet">.*</div>
+              <div>
+                <p class="tool-index">01 / inspect</p>
+                <h3>Regex playground</h3>
+              </div>
+              <span class="status-chip">live</span>
+            </div>
+            <p class="tool-description">Test a pattern, see every match, and get a plain-language hint when something breaks.</p>
+            <div class="field-stack">
+              <label for="regex-pattern">Pattern</label>
+              <div class="pattern-row">
+                <span class="pattern-slash">/</span>
+                <input id="regex-pattern" class="mono-input" value="^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$" autocomplete="off" spellcheck="false" />
+                <span class="pattern-slash">/</span>
+                <span id="regex-flags" class="flags-label">gm</span>
+              </div>
+              <div class="preset-row" aria-label="Regex presets">
+                <button type="button" class="tag-button regex-preset" data-pattern="^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$">email</button>
+                <button type="button" class="tag-button regex-preset" data-pattern="^https?:\/\/[^\s]+$">url</button>
+                <button type="button" class="tag-button regex-preset" data-pattern="^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$">uuid</button>
+                <label class="check-label"><input id="regex-ignore-case" type="checkbox" /> ignore case</label>
+              </div>
+              <label for="regex-test">Test string</label>
+              <textarea id="regex-test" class="mono-input textarea-input" spellcheck="false">hello@example.com
+not-an-email
+team@developer.lab</textarea>
+            </div>
+            <div class="tool-result">
+              <div class="result-line"><span>match output</span><span id="regex-match-count">2 matches</span></div>
+              <div id="regex-result" class="result-box mono-text" aria-live="polite"></div>
+              <p id="regex-message" class="helper-text">Looks good — both email-shaped lines match.</p>
+            </div>
+          </article>
+
+          <article class="tool-card" id="docker-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-cyan">▣</div>
+              <div>
+                <p class="tool-index">02 / compose</p>
+                <h3>Compose builder</h3>
+              </div>
+              <span class="status-chip">offline</span>
+            </div>
+            <p class="tool-description">Spin up a clean local database service without remembering the boilerplate.</p>
+            <form class="form-grid" id="docker-form">
+              <label>Database<select id="docker-database"><option value="postgres">PostgreSQL</option><option value="mysql">MySQL</option><option value="mongodb">MongoDB</option><option value="redis">Redis</option></select></label>
+              <label>Version<input id="docker-version" value="16" inputmode="text" /></label>
+              <label>Port<input id="docker-port" value="5432" inputmode="numeric" /></label>
+              <label>Database name<input id="docker-db-name" value="app" /></label>
+              <label>Username<input id="docker-user" value="app_user" /></label>
+              <label>Password<input id="docker-password" type="password" value="local_only" autocomplete="current-password" /></label>
+            </form>
+            <div class="tool-result">
+              <div class="result-line"><span>docker-compose.yml</span><div class="result-actions"><button id="docker-copy" class="text-button" type="button">copy</button><button id="docker-download" class="text-button" type="button">download</button></div></div>
+              <pre id="docker-output" class="result-box code-box" aria-live="polite"></pre>
+            </div>
+          </article>
+
+          <article class="tool-card" id="radar-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-amber">↗</div>
+              <div>
+                <p class="tool-index">03 / discover</p>
+                <h3>Tech radar</h3>
+              </div>
+              <span class="status-chip">curated</span>
+            </div>
+            <p class="tool-description">A small, opinionated map of tools worth keeping an eye on across your stack.</p>
+            <div class="radar-controls">
+              <div class="filter-row" role="group" aria-label="Filter radar">
+                <button type="button" class="filter-button active" data-radar-filter="all">all</button>
+                <button type="button" class="filter-button" data-radar-filter="python">python</button>
+                <button type="button" class="filter-button" data-radar-filter="data">data</button>
+                <button type="button" class="filter-button" data-radar-filter="infra">infra</button>
+              </div>
+              <button type="button" class="sort-button" id="radar-sort">sort: signal ↓</button>
+            </div>
+            <div id="radar-list" class="radar-list" aria-live="polite"></div>
+          </article>
+
+          <article class="tool-card" id="cost-tool">
+            <div class="tool-card-head">
+              <div class="tool-icon icon-green">$</div>
+              <div>
+                <p class="tool-index">04 / estimate</p>
+                <h3>Cloud cost lens</h3>
+              </div>
+              <span class="status-chip">rough math</span>
+            </div>
+            <p class="tool-description">Shape a quick monthly baseline before you open a pricing calculator.</p>
+            <div class="cost-controls">
+              <label class="range-row"><span>vCPU <output id="cpu-value">4</output></span><input id="cpu-input" type="range" min="1" max="64" value="4" /></label>
+              <label class="range-row"><span>RAM / GB <output id="ram-value">16</output></span><input id="ram-input" type="range" min="1" max="256" value="16" /></label>
+              <label class="range-row"><span>Storage / GB <output id="storage-value">100</output></span><input id="storage-input" type="range" min="10" max="2000" step="10" value="100" /></label>
+              <div class="provider-row"><span>Provider baseline</span><select id="cost-provider"><option value="aws">AWS-like</option><option value="gcp">GCP-like</option><option value="azure">Azure-like</option></select></div>
+            </div>
+            <div class="cost-total"><span>estimated / month</span><strong id="cost-total">$107.20</strong></div>
+            <p class="helper-text">Illustrative baseline only — confirm with your provider and region before budgeting.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="principles" class="principles-section" aria-labelledby="principles-title">
+        <div>
+          <p class="section-kicker">Built to stay useful</p>
+          <h2 id="principles-title">Small tools.<br /><em>Clear boundaries.</em></h2>
+        </div>
+        <div class="principles-list">
+          <div class="principle"><span>01</span><div><h3>Private by default</h3><p>Regex input, credentials, and calculations stay in the browser. No analytics or account wall.</p></div></div>
+          <div class="principle"><span>02</span><div><h3>Useful without a build step</h3><p>Plain HTML, CSS, and JavaScript make the project easy to fork, host, and understand.</p></div></div>
+          <div class="principle"><span>03</span><div><h3>Maintenance is visible</h3><p>CI checks every change. A scheduled workflow refreshes a small status file and identifies itself as automation.</p></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer shell">
+      <div><span class="brand-mark small">⌁</span> developer/lab <span class="footer-muted">· made for the next small thing</span></div>
+      <div class="footer-links"><a href="https://github.com/mrnamazbek/developer-lab" target="_blank" rel="noreferrer">source ↗</a><span>MIT</span><span id="year">2026</span></div>
+    </footer>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>

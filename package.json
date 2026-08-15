@@ -1,0 +1,19 @@
+{
+  "name": "developer-lab",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "A small, privacy-friendly toolkit for everyday engineering work.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/app.js && node --check src/toolkit.js && node --check scripts/daily-maintenance.mjs"
+  },
+  "keywords": [
+    "developer-tools",
+    "regex",
+    "docker-compose",
+    "cloud-cost",
+    "tech-radar"
+  ],
+  "license": "MIT"
+}
