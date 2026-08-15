@@ -1,7 +1,7 @@
 {
   "as_of": "2026-08-03",
-  "generated_at": "2026-08-15T20:32:01.450500+00:00",
-  "status": "ok",
+  "generated_at": "2026-08-15T20:33:19.766203+00:00",
+  "status": "partial",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
     "name": "Wikimedia Pageviews API",
@@ -74,51 +74,51 @@
       "points": [
         {
           "week": "2026-05-18",
-          "views": 51656
+          "views": 0
         },
         {
           "week": "2026-05-25",
-          "views": 52527
+          "views": 0
         },
         {
           "week": "2026-06-01",
-          "views": 51605
+          "views": 0
         },
         {
           "week": "2026-06-08",
-          "views": 60808
+          "views": 0
         },
         {
           "week": "2026-06-15",
-          "views": 45956
+          "views": 0
         },
         {
           "week": "2026-06-22",
-          "views": 12785
+          "views": 0
         },
         {
           "week": "2026-06-29",
-          "views": 6583
+          "views": 0
         },
         {
           "week": "2026-07-06",
-          "views": 5891
+          "views": 0
         },
         {
           "week": "2026-07-13",
-          "views": 5679
+          "views": 0
         },
         {
           "week": "2026-07-20",
-          "views": 5518
+          "views": 0
         },
         {
           "week": "2026-07-27",
-          "views": 5679
+          "views": 0
         },
         {
           "week": "2026-08-03",
-          "views": 4658
+          "views": 0
         }
       ]
     },
@@ -369,15 +369,17 @@
       "views": 8067
     },
     {
-      "id": "claude",
-      "label": "Claude",
-      "views": 4658
-    },
-    {
       "id": "gemini",
       "label": "Gemini",
       "views": 2471
+    },
+    {
+      "id": "claude",
+      "label": "Claude",
+      "views": 0
     }
   ],
-  "errors": []
+  "errors": [
+    "Claude: HTTP Error 404: Not Found"
+  ]
 }
