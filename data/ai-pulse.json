@@ -1,6 +1,6 @@
 {
   "as_of": "2026-08-10",
-  "generated_at": "2026-08-18T09:48:38.287034+00:00",
+  "generated_at": "2026-08-19T09:49:14.231091+00:00",
   "status": "ok",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
