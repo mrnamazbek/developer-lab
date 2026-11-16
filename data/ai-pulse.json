@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-11-02",
-  "generated_at": "2026-11-15T16:21:17.524575+00:00",
+  "as_of": "2026-11-09",
+  "generated_at": "2026-11-16T19:36:38.767005+00:00",
   "status": "ok",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
@@ -17,20 +17,16 @@
       "color": "#63e6e2",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 415847
-        },
-        {
           "week": "2026-08-24",
-          "views": 341801
+          "views": 360356
         },
         {
           "week": "2026-08-31",
-          "views": 274172
+          "views": 288132
         },
         {
           "week": "2026-09-07",
-          "views": 438873
+          "views": 447895
         },
         {
           "week": "2026-09-14",
@@ -63,6 +59,10 @@
         {
           "week": "2026-11-02",
           "views": 554553
+        },
+        {
+          "week": "2026-11-09",
+          "views": 334046
         }
       ]
     },
@@ -73,20 +73,16 @@
       "color": "#60a5fa",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 30376
-        },
-        {
           "week": "2026-08-24",
-          "views": 29762
+          "views": 28625
         },
         {
           "week": "2026-08-31",
-          "views": 30635
+          "views": 29439
         },
         {
           "week": "2026-09-07",
-          "views": 42036
+          "views": 41355
         },
         {
           "week": "2026-09-14",
@@ -119,6 +115,10 @@
         {
           "week": "2026-11-02",
           "views": 40522
+        },
+        {
+          "week": "2026-11-09",
+          "views": 34714
         }
       ]
     },
@@ -129,20 +129,16 @@
       "color": "#b79aff",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 927
-        },
-        {
           "week": "2026-08-24",
-          "views": 946
+          "views": 786
         },
         {
           "week": "2026-08-31",
-          "views": 1066
+          "views": 885
         },
         {
           "week": "2026-09-07",
-          "views": 1150
+          "views": 1063
         },
         {
           "week": "2026-09-14",
@@ -175,6 +171,10 @@
         {
           "week": "2026-11-02",
           "views": 779
+        },
+        {
+          "week": "2026-11-09",
+          "views": 894
         }
       ]
     },
@@ -185,20 +185,16 @@
       "color": "#9ce7b2",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 7297
-        },
-        {
           "week": "2026-08-24",
-          "views": 7967
+          "views": 7791
         },
         {
           "week": "2026-08-31",
-          "views": 7414
+          "views": 7170
         },
         {
           "week": "2026-09-07",
-          "views": 10480
+          "views": 10391
         },
         {
           "week": "2026-09-14",
@@ -231,6 +227,10 @@
         {
           "week": "2026-11-02",
           "views": 7113
+        },
+        {
+          "week": "2026-11-09",
+          "views": 8706
         }
       ]
     },
@@ -241,20 +241,16 @@
       "color": "#ffd17a",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 14270
-        },
-        {
           "week": "2026-08-24",
-          "views": 16755
+          "views": 16356
         },
         {
           "week": "2026-08-31",
-          "views": 16534
+          "views": 16188
         },
         {
           "week": "2026-09-07",
-          "views": 16977
+          "views": 16853
         },
         {
           "week": "2026-09-14",
@@ -287,6 +283,10 @@
         {
           "week": "2026-11-02",
           "views": 12896
+        },
+        {
+          "week": "2026-11-09",
+          "views": 13777
         }
       ]
     },
@@ -297,20 +297,16 @@
       "color": "#f472b6",
       "points": [
         {
-          "week": "2026-08-17",
-          "views": 13716
-        },
-        {
           "week": "2026-08-24",
-          "views": 14885
+          "views": 14324
         },
         {
           "week": "2026-08-31",
-          "views": 14502
+          "views": 13950
         },
         {
           "week": "2026-09-07",
-          "views": 19173
+          "views": 18942
         },
         {
           "week": "2026-09-14",
@@ -343,6 +339,10 @@
         {
           "week": "2026-11-02",
           "views": 20394
+        },
+        {
+          "week": "2026-11-09",
+          "views": 20181
         }
       ]
     }
@@ -351,32 +351,32 @@
     {
       "id": "chatgpt",
       "label": "ChatGPT",
-      "views": 554553
+      "views": 334046
     },
     {
       "id": "claude",
       "label": "Claude",
-      "views": 40522
+      "views": 34714
     },
     {
       "id": "deepseek",
       "label": "DeepSeek",
-      "views": 20394
+      "views": 20181
     },
     {
       "id": "perplexity",
       "label": "Perplexity",
-      "views": 12896
+      "views": 13777
     },
     {
       "id": "copilot",
       "label": "Copilot",
-      "views": 7113
+      "views": 8706
     },
     {
       "id": "gemini",
       "label": "Gemini",
-      "views": 779
+      "views": 894
     }
   ],
   "errors": []
