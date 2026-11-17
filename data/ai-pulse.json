@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-09",
-  "generated_at": "2026-11-16T19:36:38.767005+00:00",
+  "generated_at": "2026-11-17T18:34:00.615821+00:00",
   "status": "ok",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
@@ -26,7 +26,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 447895
+          "views": 451271
         },
         {
           "week": "2026-09-14",
@@ -82,7 +82,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 41355
+          "views": 41251
         },
         {
           "week": "2026-09-14",
@@ -138,7 +138,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 1063
+          "views": 1030
         },
         {
           "week": "2026-09-14",
@@ -194,7 +194,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 10391
+          "views": 10362
         },
         {
           "week": "2026-09-14",
@@ -250,7 +250,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 16853
+          "views": 16808
         },
         {
           "week": "2026-09-14",
@@ -306,7 +306,7 @@
         },
         {
           "week": "2026-09-07",
-          "views": 18942
+          "views": 18830
         },
         {
           "week": "2026-09-14",
