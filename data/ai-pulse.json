@@ -1,6 +1,6 @@
 {
   "as_of": "2026-11-09",
-  "generated_at": "2026-11-18T18:03:52.137302+00:00",
+  "generated_at": "2026-11-19T18:16:05.482358+00:00",
   "status": "ok",
   "methodology": "Weekly attention proxy based on English Wikipedia pageviews for each AI product article. This is not unique active users or model DAU.",
   "source": {
@@ -38,15 +38,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 321196
+          "views": 327021
         },
         {
           "week": "2026-10-05",
-          "views": 329668
+          "views": 341596
         },
         {
           "week": "2026-10-12",
-          "views": 306558
+          "views": 310721
         },
         {
           "week": "2026-10-19",
@@ -94,15 +94,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 35832
+          "views": 34763
         },
         {
           "week": "2026-10-05",
-          "views": 36386
+          "views": 34129
         },
         {
           "week": "2026-10-12",
-          "views": 35829
+          "views": 35438
         },
         {
           "week": "2026-10-19",
@@ -150,15 +150,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 1066
+          "views": 952
         },
         {
           "week": "2026-10-05",
-          "views": 1215
+          "views": 964
         },
         {
           "week": "2026-10-12",
-          "views": 1068
+          "views": 1002
         },
         {
           "week": "2026-10-19",
@@ -206,15 +206,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 7610
+          "views": 7436
         },
         {
           "week": "2026-10-05",
-          "views": 9254
+          "views": 8906
         },
         {
           "week": "2026-10-12",
-          "views": 8417
+          "views": 8291
         },
         {
           "week": "2026-10-19",
@@ -262,15 +262,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 15087
+          "views": 14720
         },
         {
           "week": "2026-10-05",
-          "views": 15132
+          "views": 14449
         },
         {
           "week": "2026-10-12",
-          "views": 14067
+          "views": 13887
         },
         {
           "week": "2026-10-19",
@@ -318,15 +318,15 @@
         },
         {
           "week": "2026-09-28",
-          "views": 18580
+          "views": 17864
         },
         {
           "week": "2026-10-05",
-          "views": 18174
+          "views": 17079
         },
         {
           "week": "2026-10-12",
-          "views": 21834
+          "views": 21278
         },
         {
           "week": "2026-10-19",
